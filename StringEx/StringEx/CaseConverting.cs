@@ -16,15 +16,17 @@ namespace StringEx
             {
                 if (c == ' ')
                 {
-                    str = str.Remove(i, 1);
                     try
                     {
-                        str = str.Insert(i, Char.ToUpper(str[i]).ToString());
-                        str = str.Remove(i + 1, 1);
+                        char tc = Char.ToUpper(str[i + 1]);
+                        str = str.Remove(i, 2).Insert(i, tc.ToString());
                     }
                     catch (Exception ex) { };
                 }
-                i++;
+                else
+                {
+                    i++;
+                }
             }
             return str;
         }
