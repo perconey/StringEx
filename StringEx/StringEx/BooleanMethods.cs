@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringEx
 {
@@ -17,7 +13,7 @@ namespace StringEx
             }
             for (int i = 1; i < c.Length; i++)
             {
-                if (Char.IsSymbol(c[i]) || c[i] == ' ')
+                if (Char.IsPunctuation(c[i]) || Char.IsSymbol(c[i]) || c[i] == ' ')
                 {
                     return false;
                 }
