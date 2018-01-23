@@ -10,10 +10,19 @@ namespace StringEx
     {
         public static bool IsCamelCase(this string str)
         {
-            for(int i = 0; i < str.Length; i++)
+            var c = str.ToCharArray();
+            if (Char.IsUpper(c[0]))
             {
-                if (Char.IsSymbol(str[i]) || Char.IsWhiteSpace(str[i]) || Char.IsUpper(str[0])) return false;
+                return false;
             }
+            for (int i = 1; i < c.Length; i++)
+            {
+                if (Char.IsSymbol(c[i]) || c[i] == ' ')
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
     }
