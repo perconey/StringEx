@@ -25,25 +25,23 @@ namespace StringEx
         public static bool IsDelimiterSeparated(this string str, bool mindCasing)
         {
             var c = str.ToCharArray();
-            if (mindCasing && Char.IsUpper(c[0]))
-            {
-                return false;
-            }
             //default value
-            char symbol = ' ';
-            for (int i = 1; i < c.Length; i++)
+            char symbol = 's';
+            bool sySet = false;
+            for (int i = 0; i < c.Length; i++)
             {
-                if(symbol == ' ')
+                if (mindCasing && Char.IsUpper(c[i])) return false;
+                if (Char.IsSymbol(c[i]) || Char.IsPunctuation(c[i]) && sySet == false)
                 {
-                    if (Char.IsSymbol(c[i]))
-                        symbol = c[i];
+                    symbol = c[i];
+                    sySet = true;
+                    continue;
                 }
-                else
+               if(Char.IsSymbol(c[i]) || Char.IsPunctuation(c[i]))
                 {
-                    if(Char.IsSymbol(c[i]))
+                    if(c[i] != symbol)
                     {
-                        if (c[i] != symbol)
-                            return false;
+                        return false;
                     }
                 }
             }

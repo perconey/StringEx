@@ -89,10 +89,10 @@ namespace StringEx_Tests
             string s = ts1;
             //Act
             s = s.ToDelimiterSeparated('$',true);
-            Debug.WriteLine(s);
+            bool ids = s.IsDelimiterSeparated(false);
             //Assert
-            Assert.IsTrue(true);
-
+            Assert.IsTrue(ids);
         }
+
     }
 }
