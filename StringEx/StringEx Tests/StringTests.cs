@@ -81,5 +81,18 @@ namespace StringEx_Tests
         {
             return b;
         }
+
+        [TestMethod]
+        public void DelimiterSeparatedTest()
+        {
+            //Arrange
+            string s = ts1;
+            //Act
+            s = s.ToDelimiterSeparated('$',true);
+            Debug.WriteLine(s);
+            //Assert
+            Assert.IsTrue(true);
+
+        }
     }
 }

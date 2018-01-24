@@ -21,5 +21,35 @@ namespace StringEx
 
             return true;
         }
+
+        public static bool IsDelimiterSeparated(this string str, bool mindCasing)
+        {
+            var c = str.ToCharArray();
+            if (mindCasing && Char.IsUpper(c[0]))
+            {
+                return false;
+            }
+            //default value
+            char symbol = ' ';
+            for (int i = 1; i < c.Length; i++)
+            {
+                if(symbol == ' ')
+                {
+                    if (Char.IsSymbol(c[i]))
+                        symbol = c[i];
+                }
+                else
+                {
+                    if(Char.IsSymbol(c[i]))
+                    {
+                        if (c[i] != symbol)
+                            return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
     }
 }

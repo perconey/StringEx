@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringEx
 {
@@ -28,6 +24,15 @@ namespace StringEx
                     i++;
                 }
             }
+            return str;
+        }
+
+        public static string ToDelimiterSeparated(this string str, char del, bool keepCasing)
+        {
+            if(keepCasing)
+            str = str.Replace(' ', del);
+            else
+                str = str.ToLower().Replace(' ', del);
             return str;
         }
 
