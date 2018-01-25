@@ -2,6 +2,8 @@
 
 namespace StringEx
 {
+    //     Case converting methods
+
     public static class CaseConverting
     {
         #region ToCamelCase summary

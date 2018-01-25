@@ -2,6 +2,8 @@
 
 namespace StringEx
 {
+    //     Boolean methods
+
     public static class BooleanMethods
     {
         /// <summary>
@@ -26,6 +28,19 @@ namespace StringEx
             return true;
         }
 
+        /// <summary>
+        /// Indicates whether the specified string is a number
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool IsNumber(this string str)
+        {
+            foreach(var c in str)
+            {
+                if (!Char.IsNumber(c))
+                    return false;
+            }
+            return true;
+        }
 
         /// <summary>
         /// Indicates whether the specified string is categorized as DelimiterSeparated string 

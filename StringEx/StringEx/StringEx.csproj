@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BooleanMethods.cs" />
     <Compile Include="CaseConverting.cs" />
+    <Compile Include="NumberAnalysisMethods.cs" />
     <Compile Include="OccurenciesCounting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
