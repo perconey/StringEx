@@ -4,6 +4,10 @@ namespace StringEx
 {
     public static class BooleanMethods
     {
+        /// <summary>
+        /// Indicates whether the specified string is categorized as CamelCase string 
+        /// </summary>
+        /// <returns>Boolean</returns>
         public static bool IsCamelCase(this string str)
         {
             var c = str.ToCharArray();
@@ -22,6 +26,11 @@ namespace StringEx
             return true;
         }
 
+
+        /// <summary>
+        /// Indicates whether the specified string is categorized as DelimiterSeparated string 
+        /// </summary>
+        /// <returns>Boolean</returns>
         public static bool IsDelimiterSeparated(this string str, bool mindCasing)
         {
             var c = str.ToCharArray();
