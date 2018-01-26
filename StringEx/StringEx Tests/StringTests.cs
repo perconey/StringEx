@@ -94,5 +94,15 @@ namespace StringEx_Tests
             Assert.IsTrue(ids);
         }
 
+        [TestMethod]
+        public void IsNumberTest()
+        {
+            //Arrange
+            string s = "fgf";
+            //Act
+            bool isn = s.IsInteger();
+            //Assert
+            Assert.IsTrue(isn);
+        }
     }
 }

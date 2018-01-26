@@ -14,8 +14,12 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy4(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
+            if (str.Length < 2)
+                return false;
 
             var strint = str.ToString();
             if (((int)Char.GetNumericValue(strint[strint.Length - 1])
@@ -32,8 +36,10 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy3(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
 
             var strint = str.ToString();
             long sum = 0;
@@ -55,8 +61,10 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy9(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
 
             var strint = str.ToString();
             long sum = 0;
@@ -78,8 +86,10 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy7(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
 
             int powerOf3 = 3;
             long sum = 0;
@@ -109,8 +119,10 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy11(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
 
             long oddSum = 0; long evenSum = 0;
             for (int i = str.Length - 1; i >= 0; i--)
@@ -137,8 +149,10 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool DivisibleBy20(this string str)
         {
-            if (!str.IsNumber())
+            if (!str.IsInteger())
                 throw new System.ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
             if (str.Length < 2)
                 return false;
 

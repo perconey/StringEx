@@ -32,7 +32,7 @@ namespace StringEx
         /// Indicates whether the specified string is a number
         /// </summary>
         /// <returns>Boolean</returns>
-        public static bool IsNumber(this string str)
+        public static bool IsInteger(this string str)
         {
             if (str[0] == '-')
                 str = str.Remove(0, 1);
