@@ -131,6 +131,27 @@ namespace StringEx
             return true;
         }
 
+        /// <summary>
+        /// Indicates whether the specified string is divisible by 20
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool DivisibleBy20(this string str)
+        {
+            if (!str.IsNumber())
+                throw new System.ArgumentException("Provided string is not a number");
+            if (str.Length < 2)
+                return false;
+
+            if ((int)Char.GetNumericValue(str[str.Length - 1]) != 0)
+            {
+                return false;
+            }
+            if ((int)Char.GetNumericValue(str[str.Length - 2])%2 != 0)
+            {
+                return false;
+            }
+            return true;
+        }
 
 
         //public static bool DivisibleBy(this string str)

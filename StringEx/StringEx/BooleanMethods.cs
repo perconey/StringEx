@@ -34,6 +34,8 @@ namespace StringEx
         /// <returns>Boolean</returns>
         public static bool IsNumber(this string str)
         {
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
             foreach(var c in str)
             {
                 if (!Char.IsNumber(c))
