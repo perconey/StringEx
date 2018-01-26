@@ -49,6 +49,90 @@ namespace StringEx
             return true;
         }
 
+        /// <summary>
+        /// Indicates whether the specified string is divisible by 9
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool DivisibleBy9(this string str)
+        {
+            if (!str.IsNumber())
+                throw new System.ArgumentException("Provided string is not a number");
+
+            var strint = str.ToString();
+            long sum = 0;
+            for (int i = strint.Length - 1; i >= 0; i--)
+            {
+                sum += (int)Char.GetNumericValue(strint[i]);
+            }
+            if (sum % 3 != 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Indicates whether the specified string is divisible by 7
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool DivisibleBy7(this string str)
+        {
+            if (!str.IsNumber())
+                throw new System.ArgumentException("Provided string is not a number");
+
+            int powerOf3 = 3;
+            long sum = 0;
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                if (i == str.Length - 1)
+                {
+                    sum += (int)Char.GetNumericValue(str[i]);
+                    continue;
+                }
+                if (i == str.Length - 2)
+                {
+                    sum += (int)Char.GetNumericValue(str[i]) * 3;
+                    continue;
+                }
+                powerOf3 = powerOf3 * 3;
+                sum += (int)Char.GetNumericValue(str[i]) * powerOf3;
+            }
+            if (sum % 7 != 0)
+                return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Indicates whether the specified string is divisible by 7
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool DivisibleBy11(this string str)
+        {
+            if (!str.IsNumber())
+                throw new System.ArgumentException("Provided string is not a number");
+
+            long oddSum = 0; long evenSum = 0;
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum += (int)Char.GetNumericValue(str[i]);
+                }
+                else
+                {
+                    oddSum += (int)Char.GetNumericValue(str[i]);
+                }
+            }
+            if (oddSum - evenSum % 11 != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
         //public static bool DivisibleBy(this string str)
         //{
         //    var strint = str.ToString();
