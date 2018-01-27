@@ -19,11 +19,13 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 2)
-                return false;
+                if (Convert.ToInt16(str) % 2 == 0)
+                    return true;
+                else
+                    return false;
 
-            var strint = str.ToString();
-            if (((int)Char.GetNumericValue(strint[strint.Length - 1])
-                + (int)Char.GetNumericValue(strint[strint.Length - 2])) % 4 != 0)
+            if (((int)Char.GetNumericValue(str[str.Length - 1])
+                + (int)Char.GetNumericValue(str[str.Length - 2])) % 4 != 0)
             {
                 return false;
             }
