@@ -95,14 +95,62 @@ namespace StringEx_Tests
         }
 
         [TestMethod]
+        public void IsNotNumberTest()
+        {
+            //Arrange
+            string s = "bigman";
+            //Act
+            bool isn = !s.IsInteger();
+            //Assert
+            Assert.IsTrue(isn);
+        }
+
+        [TestMethod]
         public void IsNumberTest()
         {
             //Arrange
-            string s = "fgf";
+            string s = "-123879812";
             //Act
             bool isn = s.IsInteger();
             //Assert
             Assert.IsTrue(isn);
+        }
+
+        [TestMethod]
+        public void IsDivisibleByTest()
+        {
+            //Arrange 
+            int i = 0;
+            List<string> nums = new List<string>()
+            {
+                "43929499634849239426836750481580",//by 4
+                "264195412830613048495518",//by 3
+                "1553748446562909491908107",//by 9
+                "868036385685563859740400953",//by 11
+                "358527563247560",//by 20
+                "10261056969696911181974183541690",//by 7
+            };
+
+            List<bool> bls = new List<bool>()
+            {
+                nums[0].DivisibleBy4(),
+                nums[1].DivisibleBy3(),
+                nums[2].DivisibleBy9(),
+                nums[3].DivisibleBy11(),
+                nums[4].DivisibleBy20(),
+                nums[5].DivisibleBy7(),
+            };
+
+            //Act
+            foreach(bool it in bls)
+            {
+                Debug.WriteLine($"Number {nums[i]} is {it} divisible by its given divisor");
+                i++;
+            }
+
+            //Assert
+            Assert.IsTrue(bls.TrueForAll(AllT));
+
         }
     }
 }

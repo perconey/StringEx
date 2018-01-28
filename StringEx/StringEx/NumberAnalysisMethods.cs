@@ -6,8 +6,37 @@ using System.Threading.Tasks;
 
 namespace StringEx
 {
+
+    // Converting characters inot numbers is done in the most efficient way according to an article by Microsoft on
+    // https://msdn.microsoft.com/en-us/library/system.char.aspx
+
     public static class NumberAnalysisMethods
     {
+        /// <summary>
+        /// Indicates whether the specified string is divisible by 3
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public static bool DivisibleBy3(this string str)
+        {
+            if (!str.IsInteger())
+                throw new ArgumentException("Provided string is not a number");
+            if (str[0] == '-')
+                str = str.Remove(0, 1);
+
+            long sum = 0;
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                sum += (int)Char.GetNumericValue(str[i]);
+            }
+            Console.WriteLine(sum);
+            if (sum % 3 != 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Indicates whether the specified string is divisible by 4
         /// </summary>
@@ -15,14 +44,20 @@ namespace StringEx
         public static bool DivisibleBy4(this string str)
         {
             if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
+                throw new ArgumentException("Provided string is not a number");
             if (str[0] == '-')
                 str = str.Remove(0, 1);
-            if (str.Length < 2)
+            if (str.Length < 4)
+            {
                 if (Convert.ToInt16(str) % 2 == 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
+            }
 
             if (((int)Char.GetNumericValue(str[str.Length - 1])
                 + (int)Char.GetNumericValue(str[str.Length - 2])) % 4 != 0)
@@ -33,40 +68,16 @@ namespace StringEx
         }
 
         /// <summary>
-        /// Indicates whether the specified string is divisible by 3
-        /// </summary>
-        /// <returns>Boolean</returns>
-        public static bool DivisibleBy3(this string str)
-        {
-            if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
-            if (str[0] == '-')
-                str = str.Remove(0, 1);
-
-            var strint = str.ToString();
-            long sum = 0;
-            for (int i = strint.Length - 1; i >= 0; i--)
-            {
-                sum += (int)Char.GetNumericValue(strint[i]);
-            }
-            if (sum % 3 != 0)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
         /// Indicates whether the specified string is divisible by 9
         /// </summary>
         /// <returns>Boolean</returns>
         public static bool DivisibleBy9(this string str)
         {
             if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
+                throw new ArgumentException("Provided string is not a number");
             if (str[0] == '-')
                 str = str.Remove(0, 1);
+
 
             var strint = str.ToString();
             long sum = 0;
@@ -74,7 +85,7 @@ namespace StringEx
             {
                 sum += (int)Char.GetNumericValue(strint[i]);
             }
-            if (sum % 3 != 0)
+            if (sum % 9 != 0)
             {
                 return false;
             }
@@ -89,9 +100,14 @@ namespace StringEx
         public static bool DivisibleBy7(this string str)
         {
             if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
+                throw new ArgumentException("Provided string is not a number");
             if (str[0] == '-')
                 str = str.Remove(0, 1);
+            if (str.Length < 4)
+                if (Convert.ToInt16(str) % 2 == 0)
+                    return true;
+                else
+                    return false;
 
             int powerOf3 = 3;
             long sum = 0;
@@ -107,7 +123,7 @@ namespace StringEx
                     sum += (int)Char.GetNumericValue(str[i]) * 3;
                     continue;
                 }
-                powerOf3 = powerOf3 * 3;
+                powerOf3 *= 3;
                 sum += (int)Char.GetNumericValue(str[i]) * powerOf3;
             }
             if (sum % 7 != 0)
@@ -116,15 +132,20 @@ namespace StringEx
         }
 
         /// <summary>
-        /// Indicates whether the specified string is divisible by 7
+        /// Indicates whether the specified string is divisible by 11
         /// </summary>
         /// <returns>Boolean</returns>
         public static bool DivisibleBy11(this string str)
         {
             if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
+                throw new ArgumentException("Provided string is not a number");
             if (str[0] == '-')
                 str = str.Remove(0, 1);
+            if (str.Length < 4)
+                if (Convert.ToInt16(str) % 2 == 0)
+                    return true;
+                else
+                    return false;
 
             long oddSum = 0; long evenSum = 0;
             for (int i = str.Length - 1; i >= 0; i--)
@@ -152,11 +173,14 @@ namespace StringEx
         public static bool DivisibleBy20(this string str)
         {
             if (!str.IsInteger())
-                throw new System.ArgumentException("Provided string is not a number");
+                throw new ArgumentException("Provided string is not a number");
             if (str[0] == '-')
                 str = str.Remove(0, 1);
-            if (str.Length < 2)
-                return false;
+            if (str.Length < 4)
+                if (Convert.ToInt16(str) % 2 == 0)
+                    return true;
+                else
+                    return false;
 
             if ((int)Char.GetNumericValue(str[str.Length - 1]) != 0)
             {
