@@ -28,7 +28,6 @@ namespace StringEx
             {
                 sum += (int)Char.GetNumericValue(str[i]);
             }
-            Console.WriteLine(sum);
             if (sum % 3 != 0)
             {
                 return false;
@@ -49,7 +48,7 @@ namespace StringEx
                 str = str.Remove(0, 1);
             if (str.Length < 4)
             {
-                if (Convert.ToInt16(str) % 2 == 0)
+                if (Convert.ToInt16(str) % 4 == 0)
                 {
                     return true;
                 }
@@ -78,7 +77,6 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
 
-
             var strint = str.ToString();
             long sum = 0;
             for (int i = strint.Length - 1; i >= 0; i--)
@@ -104,30 +102,32 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 4)
-                if (Convert.ToInt16(str) % 2 == 0)
+            {
+                if (Convert.ToInt16(str) % 7 == 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
-
-            int powerOf3 = 3;
-            long sum = 0;
+                }
+            }
+            long oddSum = 0; long evenSum = 0;
             for (int i = str.Length - 1; i >= 0; i--)
             {
-                if (i == str.Length - 1)
+                if (i % 2 == 0)
                 {
-                    sum += (int)Char.GetNumericValue(str[i]);
-                    continue;
+                    evenSum += (int)Char.GetNumericValue(str[i]);
                 }
-                if (i == str.Length - 2)
+                else
                 {
-                    sum += (int)Char.GetNumericValue(str[i]) * 3;
-                    continue;
+                    oddSum += (int)Char.GetNumericValue(str[i]);
                 }
-                powerOf3 *= 3;
-                sum += (int)Char.GetNumericValue(str[i]) * powerOf3;
             }
-            if (sum % 7 != 0)
+            if ((oddSum - evenSum) % 7 != 0)
+            {
                 return false;
+            }
             return true;
         }
 
@@ -142,11 +142,16 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 4)
-                if (Convert.ToInt16(str) % 2 == 0)
+            {
+                if (Convert.ToInt16(str) % 11 == 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
-
+                }
+            }
             long oddSum = 0; long evenSum = 0;
             for (int i = str.Length - 1; i >= 0; i--)
             {
@@ -159,7 +164,7 @@ namespace StringEx
                     oddSum += (int)Char.GetNumericValue(str[i]);
                 }
             }
-            if (oddSum - evenSum % 11 != 0)
+            if ((oddSum - evenSum) % 11 != 0)
             {
                 return false;
             }
@@ -177,7 +182,7 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 4)
-                if (Convert.ToInt16(str) % 2 == 0)
+                if (Convert.ToInt16(str) % 20 == 0)
                     return true;
                 else
                     return false;
