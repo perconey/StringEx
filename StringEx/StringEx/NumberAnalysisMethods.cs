@@ -48,7 +48,7 @@ namespace StringEx
                 str = str.Remove(0, 1);
             if (str.Length < 4)
             {
-                if (Convert.ToInt16(str) % 4 == 0)
+                if (Convert.ToInt16(str) % 2 == 0)
                 {
                     return true;
                 }
@@ -102,32 +102,30 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 4)
-            {
                 if (Convert.ToInt16(str) % 7 == 0)
-                {
                     return true;
-                }
                 else
-                {
                     return false;
-                }
-            }
-            long oddSum = 0; long evenSum = 0;
+
+            int powerOf3 = 3;
+            long sum = 0;
             for (int i = str.Length - 1; i >= 0; i--)
             {
-                if (i % 2 == 0)
+                if (i == str.Length - 1)
                 {
-                    evenSum += (int)Char.GetNumericValue(str[i]);
+                    sum += (int)Char.GetNumericValue(str[i]);
+                    continue;
                 }
-                else
+                if (i == str.Length - 2)
                 {
-                    oddSum += (int)Char.GetNumericValue(str[i]);
+                    sum += (int)Char.GetNumericValue(str[i]) * 3;
+                    continue;
                 }
+                powerOf3 *= 3;
+                sum += (int)Char.GetNumericValue(str[i]) * powerOf3;
             }
-            if ((oddSum - evenSum) % 7 != 0)
-            {
+            if (sum % 7 != 0)
                 return false;
-            }
             return true;
         }
 
@@ -143,7 +141,7 @@ namespace StringEx
                 str = str.Remove(0, 1);
             if (str.Length < 4)
             {
-                if (Convert.ToInt16(str) % 11 == 0)
+                if (Convert.ToInt16(str) % 2 == 0)
                 {
                     return true;
                 }
@@ -182,7 +180,7 @@ namespace StringEx
             if (str[0] == '-')
                 str = str.Remove(0, 1);
             if (str.Length < 4)
-                if (Convert.ToInt16(str) % 20 == 0)
+                if (Convert.ToInt16(str) % 2 == 0)
                     return true;
                 else
                     return false;
