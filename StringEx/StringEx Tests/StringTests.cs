@@ -166,5 +166,18 @@ namespace StringEx_Tests
             //Assert
             Assert.IsTrue(str == rev);
         }
+
+        [TestMethod]
+        public void StringShuffleTest()
+        {
+            //Arrange
+            string str = ts2;
+
+            //Act
+            str = str.ShuffleCharacters();
+
+            //Check
+            Debug.WriteLine(str);
+        }
     }
 }
