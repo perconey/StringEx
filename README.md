@@ -15,14 +15,15 @@ and case conversion or validation. You can find more information about project a
   long, your program can get very laggy if there are more and more tasks to complete.  
   Here comes very handy technique of checking divisibility which involves analyzing just  
   couple of digits for example (%4) can be calculated by applying the following algorithm
-  > Let's represent a seven digit number 6522148 by:  
+  > Let's represent a seven digit number 6522148 as a sum of it's constituent digits:  
   (a1 * 1000000 + a2 * 100000 + a3 * 10000 + a4 * 1000 + a5 * 100 + a6 * 10 + a7 * 1)  
   > After checking if provided string is a number and throwing an ArgumentException when it is not  
   > apply following algorithm
     
     
-    ( Char.GetNumericValue(*last character pos*) + Char.GetNumericValue(*one before last character pos*) ) % 4
+    ( Char.GetNumericValue(a6) + Char.GetNumericValue(a7) ) % 4
+    a6 - (String.Lenght - 1)   a7 -(String.Lenght - 2)
     
-  For larger numbers, performance of the operation is higher than regular % operation for whole number
+  For larger numbers, performance is higher than regular modulo operation for whole large number
     
   
