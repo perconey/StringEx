@@ -152,5 +152,19 @@ namespace StringEx_Tests
             Assert.IsTrue(bls.TrueForAll(AllT));
 
         }
+        [TestMethod]
+        public void StringReverseTest()
+        {
+            //Arrange
+            string str = ts2;
+            string rev = "nordehatcO";
+
+            //Act
+            str = str.Reverse();
+            Debug.WriteLine(str);
+
+            //Assert
+            Assert.IsTrue(str == rev);
+        }
     }
 }

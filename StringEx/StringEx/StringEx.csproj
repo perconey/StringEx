@@ -45,6 +45,7 @@
     <Compile Include="NumberAnalysisMethods.cs" />
     <Compile Include="OccurenciesCounting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransformationMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

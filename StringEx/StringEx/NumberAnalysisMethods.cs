@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace StringEx
 {
 
-    // Converting characters inot numbers is done in the most efficient way according to an article by Microsoft on
+    // Converting characters into numbers is done in the most efficient way according to an article by Microsoft on
     // https://msdn.microsoft.com/en-us/library/system.char.aspx
 
     public static class NumberAnalysisMethods
