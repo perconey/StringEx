@@ -179,5 +179,35 @@ namespace StringEx_Tests
             //Check
             Debug.WriteLine(str);
         }
+
+        [TestMethod]
+        public void CharacterCountTestNoMindCasing()
+        {
+            //Arrange 
+            string s = "Unexpected";
+            int expected = 3;
+
+            //Act
+            int actual = s.CharacterCount('e');
+
+            //Assert
+            Assert.IsTrue(actual == expected);
+
+        }
+
+        [TestMethod]
+        public void CharacterCountTestMindCasing()
+        {
+            //Arrange 
+            string s = "UnexpEcted";
+            int expected = 2;
+
+            //Act
+            int actual = s.CharacterCount('e', true);
+
+            //Assert
+            Assert.IsTrue(actual == expected);
+
+        }
     }
 }

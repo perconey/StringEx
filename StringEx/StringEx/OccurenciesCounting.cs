@@ -31,6 +31,24 @@ namespace StringEx
             return i;
         }
 
+        /// <summary>
+        /// Gets the 32-bit integer that represents a number of occurencies of character supplied in parameter
+        ///<para>If MindCasing paramters is true, method does recognize casing of characters</para> 
+        /// </summary>
+        /// <returns>Number of character occurencies</returns>
+        public static int CharacterCount(this string str, char WantedCharacter, bool MindCasing = false)
+        {
+            int i = 0;
+            if (!MindCasing)
+                str = str.ToLower();
+            
+            foreach (char c in str)
+                if (c == WantedCharacter)
+                    i++;
+ 
+            return i;
+        }
+
 
         /// <summary>
         /// Gets the 32-bit integer that represents a number of lower case characters in string 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StringEx
 {
@@ -22,8 +20,7 @@ namespace StringEx
         }
 
         /// <summary>
-        /// Transforms the value of specified string into new string containing the same 
-        /// characters but in random order
+        /// Transforms the value of specified string into new string in reversed order
         /// </summary>
         /// <returns>Shuffled string</returns>
         public static string Reverse(this string str)
@@ -33,6 +30,10 @@ namespace StringEx
             return new string(ca);
         }
 
+        /// <summary>
+        /// Transforms the value of sepcified string into new string containing the same characters but in random order
+        /// </summary>
+        /// <returns>Shuffled string</returns>
         public static string ShuffleCharacters(this string str)
         {
             var li = new List<char>();
